@@ -1,7 +1,5 @@
 package br.edu.utfpr.exemploteste;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -29,12 +27,8 @@ public class CalculadoraTest {
          assertEquals(12, calculadora.multiplicar(3, 4), 0.1);
      }
      
-     @Test public void dividirTest() {
-        try {
-            assertEquals(5, calculadora.dividir(10, 2), 0.1);
-        } catch (DivisaoPorZeroException ex) {
-            Logger.getLogger(CalculadoraTest.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     @Test public void dividirTest() throws DivisaoPorZeroException {
+        assertEquals(5, calculadora.dividir(10, 2), 0.1);
      }
      
      @Test(expected = DivisaoPorZeroException.class)
